@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace MoodAnalyzer
 {
-    public class MoodAnalyzer
+    public class MoodAnalyzerClass
     {
         string moodRegex = ".*[ ][Ss][aA][dD][ ].*";
         public string AnalyzeMood(string statement)

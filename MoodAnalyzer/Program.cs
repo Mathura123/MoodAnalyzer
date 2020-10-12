@@ -9,7 +9,7 @@ namespace MoodAnalyzer
             Console.WriteLine("Welcome to Mood Analyzer");
             Console.WriteLine("Enter your statement to analyze your mood");
             string statement = Console.ReadLine();
-            MoodAnalyzer moodObj = new MoodAnalyzer();
+            MoodAnalyzerClass moodObj = new MoodAnalyzerClass();
             Console.WriteLine(moodObj.AnalyzeMood(statement));
         }
     }
