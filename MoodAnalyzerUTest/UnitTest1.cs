@@ -25,10 +25,10 @@ namespace MoodAnalyzerUTest
         {
             string expectedMood = "HAPPY";
             string inputMessage = "I am in Any Mood";
-            MoodAnalyzer.MoodAnalyzerClass moodObj = new MoodAnalyzer.MoodAnalyzerClass();
+            MoodAnalyzer.MoodAnalyzerClass moodObj = new MoodAnalyzer.MoodAnalyzerClass(inputMessage);
 
             //Act
-            string result = moodObj.AnalyzeMood(inputMessage);
+            string result = moodObj.AnalyzeMood();
 
             //Assert
             Assert.AreEqual(result, expectedMood);
