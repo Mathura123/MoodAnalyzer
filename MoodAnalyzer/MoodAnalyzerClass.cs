@@ -7,7 +7,7 @@ namespace MoodAnalyzer
 {
     public class MoodAnalyzerClass
     {
-        string moodRegex = ".*[ ][Ss][aA][dD][ ].*";
+        string moodRegex = "(.*[ ])*[Ss][aA][dD]([ ].*)*";
         string message;
         public MoodAnalyzerClass()
         {
@@ -18,21 +18,35 @@ namespace MoodAnalyzer
         }
         public string AnalyzeMood(string statement)
         {
-            if (Regex.IsMatch(statement, moodRegex))
+            try
             {
-                return "SAD";
+                if (Regex.IsMatch(statement, moodRegex))
+                {
+                    return "SAD";
+                }
+                else
+                    return "HAPPY";
             }
-            else
+            catch
+            {
                 return "HAPPY";
+            }
         }
         public string AnalyzeMood()
         {
-            if (Regex.IsMatch(message, moodRegex))
+            try
             {
-                return "SAD";
+                if (Regex.IsMatch(message, moodRegex))
+                {
+                    return "SAD";
+                }
+                else
+                    return "HAPPY";
             }
-            else
+            catch
+            {
                 return "HAPPY";
+            }
         }
     }
 }
