@@ -50,5 +50,21 @@ namespace MoodAnalyzerUTest
                 Assert.AreEqual(expectedMessage, e.Message);
             }
         }
+        [TestMethod]
+        public void Null_Should_Throw_EmptyMessageExceptionCustomMessage_Mood_cannot_be_Empty()
+        {
+            try
+            {
+
+                string inputMessage = "";
+                MoodAnalyzerClass moodObj = new MoodAnalyzerClass(inputMessage);
+                string result = moodObj.AnalyzeMood();
+            }
+            catch (MoodAnalyzeCustomException e)
+            {
+                string expectedMessage = "Mood cannot be Empty";
+                Assert.AreEqual(expectedMessage, e.Message);
+            }
+        }
     }
 }
