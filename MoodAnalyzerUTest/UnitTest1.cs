@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MoodAnalyzer;
 
 namespace MoodAnalyzerUTest
 {
@@ -34,18 +35,20 @@ namespace MoodAnalyzerUTest
             Assert.AreEqual(result, expectedMood);
         }
         [TestMethod]
-        public void Null_Should_Return_HAPPY()
+        public void Null_Should_Throw_NullExceptionCustomMessage_Mood_cannot_be_NULL()
         {
-            //Arrange
-            string expectedMood = "HAPPY";
-            string inputMessage = null;
-            MoodAnalyzer.MoodAnalyzerClass moodObj = new MoodAnalyzer.MoodAnalyzerClass(inputMessage);
+            try
+            {
 
-            //Act
-            string result = moodObj.AnalyzeMood();
-
-            //Assert
-            Assert.AreEqual(result, expectedMood);
+                string inputMessage = null;
+                MoodAnalyzerClass moodObj = new MoodAnalyzerClass(inputMessage);
+                string result = moodObj.AnalyzeMood();
+            }
+            catch(MoodAnalyzeCustomException e)
+            {
+                string expectedMessage = "Mood cannot be null";
+                Assert.AreEqual(expectedMessage, e.Message);
+            }
         }
     }
 }
