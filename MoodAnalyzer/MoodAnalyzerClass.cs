@@ -36,16 +36,20 @@ namespace MoodAnalyzer
         {
             try
             {
-                if (Regex.IsMatch(message, moodRegex))
+                if(message.Equals(string.Empty))
+                {
+                    throw new MoodAnalyzeCustomException(MoodAnalyzeCustomException.ExceptionType.EMPTY_MESSAGE, "Mood cannot be Empty");
+                }
+                else if (Regex.IsMatch(message, moodRegex))
                 {
                     return "SAD";
                 }
                 else
                     return "HAPPY";
             }
-            catch
+            catch(NullReferenceException)
             {
-                return "HAPPY";
+                throw new MoodAnalyzeCustomException(MoodAnalyzeCustomException.ExceptionType.NULL_EXCEPTION, "Mood cannot be null");
             }
         }
     }
