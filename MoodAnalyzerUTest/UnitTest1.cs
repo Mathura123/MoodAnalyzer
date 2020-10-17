@@ -75,12 +75,27 @@ namespace MoodAnalyzerUTest
                 string constructorName = "MoodAnalyzerClass";
                 object expectedObj = new MoodAnalyzerClass();
                 object result = MoodAnalyzerFactory.CreateMoodAnalyzerObject(className, constructorName);
-                bool answer = expectedObj.Equals(result);
-                //Assert.AreEqual(expectedObj, result);
+                Assert.AreEqual(expectedObj.GetType(), result.GetType());
             }
             catch(MoodAnalyzeCustomException e)
             {
                 System.Console.WriteLine(e.Message);
+            }
+        }
+        [TestMethod]
+        public void Given_Improper_MoodAnalyzer_Class_Name_Should_Throw_MoodAnalyzerException()
+        {
+            try
+            {
+                string className = "Mood.MoodAnalyzerClass";
+                string constructorName = "MoodAnalyzerClass";
+                object expectedObj = new MoodAnalyzerClass();
+                object result = MoodAnalyzerFactory.CreateMoodAnalyzerObject(className, constructorName);
+            }
+            catch (MoodAnalyzeCustomException e)
+            {
+                string expected = "CLASS NOT FOUND";
+                Assert.AreEqual(expected, e.Message);
             }
         }
     }
