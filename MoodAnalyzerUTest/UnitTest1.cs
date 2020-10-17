@@ -114,5 +114,21 @@ namespace MoodAnalyzerUTest
                 Assert.AreEqual(expected, e.Message);
             }
         }
+        [TestMethod]
+        public void Given_MoodAnalyzer_In_Paratemized_Constructor_Should_Return_MoodAnalyzer_Object()
+        {
+            try
+            {
+                string className = "MoodAnalyzer.MoodAnalyzerClass";
+                string constructorName = "MoodAnalyzerClass";
+                object expectedObj = new MoodAnalyzerClass("Happy");
+                object result = MoodAnalyzerFactory.CreateObjectOfMoodAnalyserUsingParameterizedConstructor(className, constructorName,"Happy");
+                Assert.AreEqual(expectedObj.GetType(), result.GetType());
+            }
+            catch (MoodAnalyzeCustomException e)
+            {
+                System.Console.WriteLine(e.Message);
+            }
+        }
     }
 }
