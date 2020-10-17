@@ -98,5 +98,21 @@ namespace MoodAnalyzerUTest
                 Assert.AreEqual(expected, e.Message);
             }
         }
+        [TestMethod]
+        public void Given_Improper_MoodAnalyzer_Constructor_Name_Should_Throw_MoodAnalyzerException()
+        {
+            try
+            {
+                string className = "MoodAnalyzer.MoodAnalyzerClass";
+                string constructorName = "MoodAnalyzer";
+                object expectedObj = new MoodAnalyzerClass();
+                object result = MoodAnalyzerFactory.CreateMoodAnalyzerObject(className, constructorName);
+            }
+            catch (MoodAnalyzeCustomException e)
+            {
+                string expected = "CONSTRUCTOR NOT FOUND";
+                Assert.AreEqual(expected, e.Message);
+            }
+        }
     }
 }
