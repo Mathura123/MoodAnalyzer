@@ -198,5 +198,17 @@ namespace MoodAnalyzerUTest
             string result = MoodAnalyserReflector.SetField("HAPPY", "message");
             Assert.AreEqual("HAPPY", result);
         }
+        [TestMethod]
+        public void Given_Improper_FieldName_WithReflector_Should_Throw_MoodAnalyzerException()
+        {
+            try
+            {
+                string result = MoodAnalyserReflector.SetField("HAPPY", "meage");
+            }
+            catch(MoodAnalyzeCustomException e)
+            {
+                Assert.AreEqual("FIELD IS NOT FOUND", e.Message);
+            }
+        }
     }
 }
