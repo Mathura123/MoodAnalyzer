@@ -66,5 +66,22 @@ namespace MoodAnalyzerUTest
                 Assert.AreEqual(expectedMessage, e.Message);
             }
         }
+        [TestMethod]
+        public void Given_MoodAnalyzer_Class_Name_Should_Return_MoodAnalyzer_Object()
+        {
+            try
+            {
+                string className = "MoodAnalyzer.MoodAnalyzerClass";
+                string constructorName = "MoodAnalyzerClass";
+                object expectedObj = new MoodAnalyzerClass();
+                object result = MoodAnalyzerFactory.CreateMoodAnalyzerObject(className, constructorName);
+                bool answer = expectedObj.Equals(result);
+                //Assert.AreEqual(expectedObj, result);
+            }
+            catch(MoodAnalyzeCustomException e)
+            {
+                System.Console.WriteLine(e.Message);
+            }
+        }
     }
 }
