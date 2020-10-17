@@ -210,5 +210,17 @@ namespace MoodAnalyzerUTest
                 Assert.AreEqual("FIELD IS NOT FOUND", e.Message);
             }
         }
+        [TestMethod]
+        public void Given_Null_Message_WithReflector_Should_Throw_MoodAnalyzerException()
+        {
+            try
+            {
+                string result = MoodAnalyserReflector.SetField(null, "message");
+            }
+            catch (MoodAnalyzeCustomException e)
+            {
+                Assert.AreEqual("MESSAGE SHOULD NOT BE NULL", e.Message);
+            }
+        }
     }
 }
