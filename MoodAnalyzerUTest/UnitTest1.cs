@@ -162,5 +162,20 @@ namespace MoodAnalyzerUTest
                 Assert.AreEqual(expected, e.Message);
             }
         }
+        [TestMethod]
+        public void Given_Happy_Message_Should_Return_HAPPY_Mood()
+        {
+            try
+            {
+                string methodName = "AnalyzeMood";
+                string message = "I am in Happy mood";
+                string expected = "HAPPY";
+                string result = MoodAnalyserReflector.InvokeMethodUsingReflection(methodName, message);
+                Assert.AreEqual(expected, result);
+            }
+            catch (MoodAnalyzeCustomException e)
+            {
+            }
+        }
     }
 }
