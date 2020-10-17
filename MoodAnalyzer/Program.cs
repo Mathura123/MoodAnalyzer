@@ -9,10 +9,11 @@ namespace MoodAnalyzer
             Console.WriteLine("Welcome to Mood Analyzer");
             Console.WriteLine("Enter your statement to analyze your mood");
             string statement = Console.ReadLine();
+            MoodAnalyzerFactory.CreateMoodAnalyzerObject("MoodAnalyzer.MoodAnalyzerClass", "MoodAnalyzerClass");
 
 
-            MoodAnalyzerClass moodObj = new MoodAnalyzerClass(statement);
-            Console.WriteLine(moodObj.AnalyzeMood());
+            //MoodAnalyzerClass moodObj = new MoodAnalyzerClass(statement);
+            //Console.WriteLine(moodObj.AnalyzeMood());
         }
     }
 }
