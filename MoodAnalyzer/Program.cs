@@ -11,8 +11,8 @@ namespace MoodAnalyzer
             string statement = Console.ReadLine();
             MoodAnalyzerFactory.CreateMoodAnalyzerObject("MoodAnalyzer.MoodAnalyzerClass", "MoodAnalyzerClass");
             MoodAnalyzerFactory.CreateObjectOfMoodAnalyserUsingParameterizedConstructor("MoodAnalyzer.MoodAnalyzerClass", "MoodAnalyzerClass");
-            Console.WriteLine(MoodAnalyserReflector.InvokeMethodUsingReflection("AnalyzeMood", "i am any mood")); 
-
+            Console.WriteLine(MoodAnalyserReflector.InvokeMethodUsingReflection("AnalyzeMood", "i am any mood"));
+            Console.WriteLine(MoodAnalyserReflector.SetField("Sad","message"));
 
             //MoodAnalyzerClass moodObj = new MoodAnalyzerClass(statement);
             //Console.WriteLine(moodObj.AnalyzeMood());

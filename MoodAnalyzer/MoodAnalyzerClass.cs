@@ -8,7 +8,7 @@ namespace MoodAnalyzer
     public class MoodAnalyzerClass
     {
         string moodRegex = "(.*[ ])*[Ss][aA][dD]([ ].*)*";
-        string message;
+        public string message;
         public MoodAnalyzerClass()
         {
         }
