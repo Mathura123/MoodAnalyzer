@@ -177,5 +177,20 @@ namespace MoodAnalyzerUTest
             {
             }
         }
+        [TestMethod]
+        public void Given_Improper_Method_Name_Should_Throw_MoodAnalyzerException()
+        {
+            try
+            {
+                string methodName = "AnalyzeMod";
+                string message = "I am in Happy mood";
+                string result = MoodAnalyserReflector.InvokeMethodUsingReflection(methodName, message);
+            }
+            catch (MoodAnalyzeCustomException e)
+            {
+                string expected = "METHOD_NOT_FOUND";
+                Assert.AreEqual(expected, e.Message);
+            }
+        }
     }
 }
