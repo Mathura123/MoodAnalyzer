@@ -130,5 +130,21 @@ namespace MoodAnalyzerUTest
                 System.Console.WriteLine(e.Message);
             }
         }
+        [TestMethod]
+        public void Given_Improper_MoodAnalyzer_Class_Name_With_Paratemized_Constructor_Should_Throw_MoodAnalyzerException()
+        {
+            try
+            {
+                string className = "Mood.MoodAnalyzerClass";
+                string constructorName = "MoodAnalyzerClass";
+                object expectedObj = new MoodAnalyzerClass("Happy");
+                object result = MoodAnalyzerFactory.CreateObjectOfMoodAnalyserUsingParameterizedConstructor(className, constructorName,"Happy");
+            }
+            catch (MoodAnalyzeCustomException e)
+            {
+                string expected = "CLASS NOT FOUND";
+                Assert.AreEqual(expected, e.Message);
+            }
+        }
     }
 }
